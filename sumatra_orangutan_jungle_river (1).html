@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sumatra Orangutan Jungle River</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-bg: #43a047;
+      --green-dark: #2e7d32;
+      --green-deep: #1b5e20;
+      --white: #ffffff;
+      --text-dark: #222823;
+      --text-muted: #5c665e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--green-bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Top Language Bar */
+    .top-lang {
+      background: var(--white);
+      padding: 0.45rem 4% 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .top-lang select {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid #cfd8d0;
+      border-radius: 3px;
+      color: var(--text-dark);
+      background: #fff;
+      cursor: pointer;
+    }
+
+    /* Brand Header */
+    .brand-header {
+      background: var(--white);
+      padding: 0.5rem 4% 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-text {
+      line-height: 1.02;
+      text-align: left;
+    }
+
+    .brand-text .main-title {
+      font-weight: 800;
+      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+      color: #1f241f;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text .main-title span {
+      color: var(--green-dark);
+      display: block;
+    }
+
+    .brand-text .sub-title {
+      margin-top: 0.25rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--green-deep);
+      border-top: 2px solid var(--green-dark);
+      padding-top: 0.2rem;
+      display: inline-block;
+    }
+
+    /* Sticky Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-top: 1px solid #eef2ee;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      padding: 0.85rem 4%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(1rem, 3vw, 2.6rem);
+    }
+
+    nav a {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text-dark);
+    }
+
+    /* Leaf Pattern Background */
+    .leaf-section {
+      position: relative;
+      background-color: var(--green-bg);
+      background-image:
+        radial-gradient(ellipse 90px 32px at 12% 18%, transparent 88%, rgba(255,255,255,0.14) 90%, rgba(255,255,255,0.14) 94%, transparent 96%),
+        radial-gradient(ellipse 110px 38px at 88% 24%, transparent 88%, rgba(255,255,255,0.14) 90%, rgba(255,255,255,0.14) 94%, transparent 96%),
+        radial-gradient(ellipse 95px 34px at 18% 78%, transparent 88%, rgba(255,255,255,0.14) 90%, rgba(255,255,255,0.14) 94%, transparent 96%),
+        radial-gradient(ellipse 105px 36px at 84% 82%, transparent 88%, rgba(255,255,255,0.14) 90%, rgba(255,255,255,0.14) 94%, transparent 96%);
+    }
+
+    /* Split Hero */
+    .split-hero {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      min-height: 410px;
+    }
+
+    /* Flanged orangutan & Sumatra rainforest hero photo */
+    .split-hero-photo {
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=1200&q=85") center/cover no-repeat;
+      min-height: 290px;
+    }
+
+    .split-hero-photo::after {
+      content: "SUMATRA ORANGUTAN JUNGLE RIVER";
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.88);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .split-hero-green {
+      padding: 3rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .split-hero-green h1 {
+      font-size: clamp(1.5rem, 2.7vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .split-hero-green p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 540px;
+      margin-bottom: 1.6rem;
+    }
+
+    .split-hero-green .tagline {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e8f5e9;
+    }
+
+    /* White Intro Card over Green */
+    .intro-wrapper {
+      padding: 0 5% 3.5rem;
+    }
+
+    .white-box {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .white-box h2 {
+      font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      line-height: 1.35;
+      color: #1f241f;
+    }
+
+    .divider-line {
+      width: 52px;
+      height: 2px;
+      background: #2b302b;
+      margin: 1.2rem auto 1.4rem;
+    }
+
+    .white-box p {
+      max-width: 720px;
+      margin: 0 auto 1.1rem;
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .white-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Full-width Banner: Mountain rainforest canopy & winding river valley */
+    .script-banner {
+      height: 330px;
+      background: linear-gradient(rgba(16, 36, 18, 0.38), rgba(16, 36, 18, 0.38)),
+                  url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=85") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .script-banner .script-text {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--white);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Section Headings on Green */
+    .catalog-section {
+      padding: 3.5rem 5%;
+    }
+
+    .section-heading {
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .section-heading .divider-white {
+      width: 50px;
+      height: 2px;
+      background: var(--white);
+      margin: 0.9rem auto 1rem;
+    }
+
+    .section-heading p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    /* Cards Grid (3 columns like screenshot) */
+    .cards-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .tour-card {
+      background: var(--white);
+      padding: 1.8rem 1.4rem 1.6rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .circle-photo {
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: -11px;
+      position: relative;
+      z-index: 1;
+      border: 4px solid #fff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .ribbon-badge {
+      position: relative;
+      z-index: 2;
+      background: #2e7d32;
+      color: var(--white);
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 0.1rem 1.25rem;
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .tour-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #1f241f;
+      margin-bottom: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .tour-card p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-find-more {
+      display: inline-block;
+      border: 1.5px solid #2e7d32;
+      color: #2e7d32;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 0.55rem 1.2rem;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-find-more:hover {
+      background: #2e7d32;
+      color: var(--white);
+    }
+
+    /* Horizontal Photo Strip */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 185px;
+      overflow: hidden;
+      background: #1b361d;
+    }
+
+    .photo-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Plan & About */
+    .info-section {
+      padding: 3.5rem 5%;
+    }
+
+    .info-grid {
+      max-width: 1080px;
+      margin: 1.5rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--white);
+      padding: 1.8rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green-dark);
+      margin-bottom: 0.7rem;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--green-deep);
+      color: #e8f5e9;
+      padding: 2.5rem 5% 1.5rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 150;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .wa-float svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+
+    /* Modal */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-bg.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      max-width: 460px;
+      width: 100%;
+      padding: 1.8rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-box h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .modal-box p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 900px) {
+      .split-hero {
+        grid-template-columns: 1fr;
+      }
+      .cards-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-strip {
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+      }
+      .photo-strip img {
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-lang">
+    <select aria-label="Select Language">
+      <option value="en" selected>English</option>
+      <option value="id">Indonesia</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <header class="brand-header">
+    <a href="#home" class="brand-logo">
+      <svg width="78" height="78" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#2e7d32" />
+        <circle cx="50" cy="50" r="40" fill="#a5d6a7" />
+        <!-- Simple Orangutan Silhouette -->
+        <ellipse cx="50" cy="58" rx="18" ry="20" fill="#c85a17" />
+        <circle cx="50" cy="40" r="14" fill="#d86b24" />
+        <ellipse cx="50" cy="43" rx="9" ry="7" fill="#4e2a14" />
+        <circle cx="46" cy="40" r="1.8" fill="#fff" />
+        <circle cx="54" cy="40" r="1.8" fill="#fff" />
+        <!-- Leaves -->
+        <path d="M10 68 Q25 56 36 74 Q20 80 10 68 Z" fill="#2e7d32" />
+        <path d="M90 68 Q75 56 64 74 Q80 80 90 68 Z" fill="#2e7d32" />
+      </svg>
+      <div class="brand-text">
+        <div class="main-title">SUMATRA<span>ORANGUTAN</span></div>
+        <div class="sub-title">JUNGLE RIVER</div>
+      </div>
+    </a>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#ethical-treks">Ethical Treks</a></li>
+      <li><a href="#eco-tours">Eco Tours</a></li>
+      <li><a href="#plan-trip">Plan Your Trip</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="leaf-section">
+    <div class="split-hero">
+      <div class="split-hero-photo"></div>
+      <div class="split-hero-green">
+        <h1>SUMATRA ORANGUTAN JUNGLE RIVER</h1>
+        <p>We guide trekkers through the rainforest around Gunung Leuser National Park, with a love for the forest and the wildlife we visit.</p>
+        <div class="tagline">GOOD FOR NATURE, FAIR FOR PEOPLE.</div>
+      </div>
+    </div>
+
+    <div class="intro-wrapper">
+      <div class="white-box">
+        <h2>ADVENTURE AWAITS: WILD, HONEST AND UNFORGETTABLE</h2>
+        <div class="divider-line"></div>
+        <p>Bukit Lawang is a small riverside village at the entrance of Gunung Leuser National Park, one of the richest rainforests in Southeast Asia.</p>
+        <p>The park is home to the Sumatran orangutan, gibbons, hornbills and many other species, and it is one of the few places where you can see orangutans in the wild.</p>
+        <p>Trekking here is an experience you will remember for a long time.</p>
+      </div>
+    </div>
+
+    <div class="script-banner">
+      <div class="script-text">An unforgettable experience awaits!</div>
+    </div>
+  </section>
+
+  <section id="ethical-treks" class="leaf-section catalog-section">
+    <div class="section-heading">
+      <h2>OUR JUNGLE TREKS</h2>
+      <div class="divider-white"></div>
+      <p>WALK THROUGH THE RAINFOREST, LOOK FOR ORANGUTANS AND WILDLIFE, AND LEARN ABOUT THE PLANTS AND ANIMALS WITH RESPECT.</p>
+    </div>
+    <div class="cards-grid" id="treksGrid"></div>
+  </section>
+
+  <!-- Photo Strip: Rainforest primates, argus/forest bird, rocky river & canopy -->
+  <div class="photo-strip">
+    <img src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=600&q=80" alt="Sumatran orangutan and canopy primates" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2e7d32/ffffff?text=Orangutan+Canopy';">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" alt="Winding jungle river valley in North Sumatra" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2e7d32/ffffff?text=Jungle+River';">
+    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=600&q=80" alt="Mountain rainforest canopy of Gunung Leuser" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2e7d32/ffffff?text=Mountain+Rainforest';">
+    <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=600&q=80" alt="Rocky tropical stream and dense jungle foliage" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2e7d32/ffffff?text=Rocky+River';">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Forest floor habitat for argus bird and wildlife" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2e7d32/ffffff?text=Forest+Wildlife';">
+  </div>
+
+  <section id="eco-tours" class="leaf-section catalog-section">
+    <div class="section-heading">
+      <h2>ECO-FRIENDLY ACTIVITIES &amp; DAY TOURS</h2>
+      <div class="divider-white"></div>
+      <p>EXPLORE THE VILLAGE, MEET LOCAL PEOPLE AND ENJOY THE NATURE AROUND BUKIT LAWANG.</p>
+    </div>
+    <div class="cards-grid" id="ecoGrid"></div>
+  </section>
+
+  <section id="plan-trip" class="leaf-section info-section">
+    <div class="section-heading">
+      <h2>PLAN YOUR TRIP &amp; ABOUT US</h2>
+      <div class="divider-white"></div>
+    </div>
+    <div id="about-us" class="info-grid">
+      <div class="info-card">
+        <h3>Where to Stay</h3>
+        <p>Stay in riverfront guesthouses or eco-lodges near the jungle entrance in Bukit Lawang.</p>
+      </div>
+      <div class="info-card">
+        <h3>How to Get Here</h3>
+        <p>Travel by private car or local transport from Medan or Kualanamu International Airport to Bukit Lawang.</p>
+      </div>
+      <div class="info-card">
+        <h3>About Us</h3>
+        <p>We run small-group ethical treks around Gunung Leuser National Park while respecting wildlife and supporting local families.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p><strong>SUMATRA ORANGUTAN JUNGLE RIVER</strong> • Gunung Leuser National Park, North Sumatra</p>
+    <p>WhatsApp: +62 852-6010-8443</p>
+  </footer>
+
+  <a
+    class="wa-float"
+    href="https://wa.me/6285260108443?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20treks%20and%20tours%20in%20Bukit%20Lawang."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32">
+      <path d="M16 3C8.82 3 3 8.82 3 16c0 2.3.6 4.55 1.75 6.54L3 29l6.65-1.74A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm7.53 18.47c-.32.9-1.85 1.72-2.56 1.83-.66.1-1.5.14-2.42-.15-.56-.18-1.28-.42-2.2-.82-3.87-1.67-6.4-5.56-6.6-5.82-.2-.26-1.57-2.09-1.57-3.99s1-2.83 1.35-3.22c.35-.39.77-.49 1.03-.49.26 0 .52 0 .75.01.24.01.56-.09.88.67.32.78 1.1 2.69 1.2 2.89.1.2.16.43.03.69-.13.26-.2.43-.39.66-.2.23-.41.51-.59.69-.2.2-.4.41-.17.81.23.39 1.02 1.68 2.19 2.72 1.5 1.34 2.77 1.75 3.16 1.95.39.2.62.16.85-.1.23-.26.98-1.14 1.24-1.53.26-.39.52-.32.88-.19.36.13 2.28 1.08 2.67 1.27.39.2.65.29.75.46.1.16.1.95-.22 1.85z"/>
+    </svg>
+  </a>
+
+  <div class="modal-bg" id="detailModal">
+    <div class="modal-box">
+      <h3 id="mTitle">Package Title</h3>
+      <p id="mDesc">Package description.</p>
+      <div class="modal-actions">
+        <button class="btn-find-more" onclick="closeModal()">Close</button>
+        <a id="mWaLink" class="btn-find-more" href="#" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Jungle trek cards mapped to orangutan, gibbon/leaf-monkey, and rainforest river scenes
+    const treks = [
+      {
+        badge: "Family Friendly",
+        title: "3 HOURS TREK",
+        desc: "A short walk at the edge of the forest. A good choice for families and for anyone with limited time.",
+        img: "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=3+Hours+Trek"
+      },
+      {
+        badge: "Family Friendly",
+        title: "1 DAY TREK",
+        desc: "A full day in the forest with a lunch in the jungle and time to watch the wildlife.",
+        img: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=1+Day+Trek"
+      },
+      {
+        badge: "Family Friendly",
+        title: "2 DAYS TREK",
+        desc: "Spend a night in the rainforest by the river and listen to the jungle sounds.",
+        img: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=2+Days+Trek"
+      },
+      {
+        badge: "Adventure",
+        title: "3 DAYS TREK",
+        desc: "Go deeper into the park with two nights of camping for a real jungle expedition.",
+        img: "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=3+Days+Trek"
+      },
+      {
+        badge: "Adventure",
+        title: "4 DAYS TREK",
+        desc: "Three nights in the forest, with new campsites and time to look for rarer wildlife.",
+        img: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=4+Days+Trek"
+      },
+      {
+        badge: "Adventure",
+        title: "5 DAYS TREK",
+        desc: "Our longest trek: four nights deep in the park for people who love to walk and explore.",
+        img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=5+Days+Trek"
+      }
+    ];
+
+    // Eco-friendly activities & day tours replaced with fresh rainforest, river, and wildlife scene URLs
+    const ecoTours = [
+      {
+        badge: "Multi-day",
+        title: "SUMATRA DISCOVERY",
+        desc: "A tour across North Sumatra: Bukit Lawang, Lake Toba, Berastagi, Halaban and Tangkahan.",
+        img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=Sumatra+Discovery"
+      },
+      {
+        badge: "Family Friendly",
+        title: "VILLAGE TOUR",
+        desc: "Walk through rice fields and see how people live in the village.",
+        img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=Village+Tour"
+      },
+      {
+        badge: "Family Friendly",
+        title: "COOKING CLASS",
+        desc: "Cook local dishes with a family and enjoy the meal together.",
+        img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=Cooking+Class"
+      },
+      {
+        badge: "Family Friendly",
+        title: "BAT CAVES",
+        desc: "Explore the caves near the village and cool off in the river afterwards.",
+        img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=Bat+Caves"
+      },
+      {
+        badge: "Full day",
+        title: "VILLAGE TOUR & BAT CAVES",
+        desc: "A full-day outing: village tour, local lunch and the bat caves.",
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=Village+%26+Bat+Caves"
+      },
+      {
+        badge: "Family Friendly",
+        title: "RIVER TUBING",
+        desc: "Float down the river on a rubber tube between the jungle and the rice fields.",
+        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        fallback: "https://placehold.co/600x600/2e7d32/ffffff?text=River+Tubing"
+      }
+    ];
+
+    function renderGrid(items, targetId) {
+      const el = document.getElementById(targetId);
+      el.innerHTML = items.map(item => `
+        <article class="tour-card">
+          <div>
+            <img class="circle-photo" src="${item.img}" alt="${item.title}" onerror="this.onerror=null;this.src='${item.fallback}';">
+            <div class="ribbon-badge">${item.badge}</div>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          </div>
+          <button class="btn-find-more" onclick="openModal('${item.title}', '${item.desc.replace(/'/g, "\\'")}')">Find out more</button>
+        </article>
+      `).join("");
+    }
+
+    function openModal(title, desc) {
+      document.getElementById("mTitle").textContent = title;
+      document.getElementById("mDesc").textContent = desc;
+      const msg = encodeURIComponent(`Hello, I would like more information about ${title}.`);
+      document.getElementById("mWaLink").href = `https://wa.me/6285260108443?text=${msg}`;
+      document.getElementById("detailModal").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("detailModal").classList.remove("open");
+    }
+
+    renderGrid(treks, "treksGrid");
+    renderGrid(ecoTours, "ecoGrid");
+  </script>
+</body>
+</html>
